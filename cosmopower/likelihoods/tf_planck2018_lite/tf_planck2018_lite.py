@@ -277,9 +277,9 @@ class tf_planck2018_lite:
         Clte_= self.te_emu_model.predictions_tf(cosmo_params)
         Clee_= self.ee_emu_model.ten_to_predictions_tf(cosmo_params)
 
-        Cltt = Cltt_[:,0:2507]
-        Clte = Clte_[:,0:2507]
-        Clee = Clee_[:,0:2507]
+        Cltt = Cltt_[:,:2507]
+        Clte = Clte_[:,:2507]
+        Clee = Clee_[:,:2507]
 
         # units of measure
         Cl = tf.scalar_mul(self.units_factor, tf.concat([Cltt, Clte, Clee], axis=1))
